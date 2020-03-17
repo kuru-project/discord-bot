@@ -87,7 +87,7 @@ client.on('message', message => {
     });
   }
   else if (command === 'rules') {
-    message.channel.send('https://web.kuru-anime.com/discord/rules');
+    message.channel.send('Read our rules at https://web.kuru-anime.com/discord/rules');
   }
 });
 
