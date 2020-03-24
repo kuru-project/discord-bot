@@ -1,29 +1,25 @@
 const discord = require('discord.js');
 const client = new discord.Client();
 
+const fs = require('fs');
+
 const prefix = ';';
 const adminID = '230249439481167872';
 
 client.commands = new discord.Collection();
 
-// List all arugments inside ./commands
-const commandFiles = [
-  'args-info',
-  'avatar',
-  'beep',
-  'kick',
-  'ping',
-  'prune',
-  'rules',
-  'server',
-  'user-info',
-];
-
 // Read commandFiles
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.name, command);
-}
+
+fs.readdir('./src/commands/', (err, commands) => {
+  if (err) throw err;
+  
+  commands.forEach(command => {
+    const commandFile = require(`./commands/${command}`),
+    commandName = command.replace('.ts', '');
+
+    client.commands.set(commandName, commandFile);
+  });
+});
 
 // Bot Mount Event Trigger
 client.on('ready', () => {
