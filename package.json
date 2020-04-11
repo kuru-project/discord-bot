@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^11.9.3",
+    "axios": "^0.19.2",
     "discord.js": "^11.4.2",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
