@@ -8,7 +8,7 @@ module.exports = {
       return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
     }
 
-    let search = args.join(' ');
+    const search = args.join(' ');
 
     const query = `
     query ($title: String) {
@@ -27,7 +27,7 @@ module.exports = {
     `;
 
     const variables = {
-      title: search
+      title: search,
     };
 
     const res = await data(
@@ -39,8 +39,8 @@ module.exports = {
       },
       JSON.stringify({
         query: query,
-        variables: variables
-      })
+        variables: variables,
+      }),
     );
 
     if (!res.data) {
@@ -72,14 +72,14 @@ module.exports = {
           name: 'Volumes',
           value: Media.volumes ? Media.volumes : 0,
           inline: true,
-        }
+        },
       ],
       image: {
         url: Media.bannerImage,
-      }
+      },
     };
 
     message.channel.send({ embed });
 
-},
+  },
 };
