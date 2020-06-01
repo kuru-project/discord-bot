@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node -r dotenv/config src/index.ts",
-    "watch": "ts-node-dev -r dotenv/config src/index.ts"
+    "dev": "ts-node-dev -r dotenv/config src/index.ts"
   },
   "repository": {
     "type": "git",
