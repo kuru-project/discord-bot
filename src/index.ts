@@ -1,7 +1,7 @@
-import discord from 'discord.js';
-import fs from 'fs';
-
+const discord = require('discord.js');
 const client = new discord.Client();
+
+const fs = require('fs');
 
 const prefix = ';';
 const adminID = '230249439481167872';
@@ -9,6 +9,7 @@ const adminID = '230249439481167872';
 client.commands = new discord.Collection();
 
 // Read commandFiles
+
 fs.readdir('./src/commands/', (err, commands) => {
   if (err) throw err;
   
